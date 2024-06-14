@@ -35,7 +35,7 @@ for z in redshifts:
     tot_DM=box.tot_DM
     vaa=box.scale_factor
     pos,vel = read_nbody_output(filename1)
-    print("N1 = {} N2 = {} N3 = {} LL={:.4f} and total DM = {}".format(N1,N2,N3,LL,tot_DM))
+    print("N1 = {} N2 = {} N3 = {} grid spacing ={:.4f} and total DM = {}".format(N1,N2,N3,LL,tot_DM))
    
     #redefining grid
     N1=int(N1/sfac)  
