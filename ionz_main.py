@@ -10,7 +10,7 @@ if len(sys.argv)<2:
 
 nbody_path=".."                 #write the n-body output file path here, don't put slash at the end
 halo_cat_path='..'              #write the halo_catalogue file path here, don't put slash at the end
-sfac = 4                        #factor for rescaling the  grid
+sfac = 2                        #factor for rescaling the  grid
 nion=23.21
 rmfp=20.00
 
