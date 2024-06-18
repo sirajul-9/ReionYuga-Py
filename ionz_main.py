@@ -10,8 +10,8 @@ nbody_path="/home/sirajul/packages/N-body"                 #write the n-body out
 halo_cat_path='/home/sirajul/packages/FoF-Halo-finder'     #write the halo_catalogue directory path here, don't put slash at the end
 sfac = 2                                                   #factor for rescaling the  grid
 Nthreads=2                                                 #set the number of openmp threads
-cic_parallel_flag=True                                     #run CIC in parallel or not
-cic_threads=2                                              #number of threads for CIC
+cic_parallel_flag=True                                     #run CIC in parallel or not, parallel will require more memory
+cic_threads=2                                              #number of threads for CIC, more threads for CIC takes more memory, so keep it 2
 
 #parameters of the reionization model
 nion=23.21                                                 #parameter Nion, fid. value=23.21
