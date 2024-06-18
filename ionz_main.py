@@ -9,7 +9,7 @@ import sys
 nbody_path="/home/sirajul/packages/N-body"                 #write the n-body output directory path here, don't put slash at the end
 halo_cat_path='/home/sirajul/packages/FoF-Halo-finder'     #write the halo_catalogue directory path here, don't put slash at the end
 sfac = 2                                                   #factor for rescaling the  grid
-Nthreads=2                                                 #set the number of openmp threads
+Nthreads=2                                                 #set the number of openmp threads, see for which valule you are getting maximum speedup
 cic_parallel_flag=True                                     #run CIC in parallel or not, parallel will require more memory
 cic_threads=2                                              #number of threads for CIC, more threads for CIC takes more memory, so keep it 2
 
