@@ -132,7 +132,7 @@ for z in redshifts:
 
     #getting neutral hydrogen density field in real space
     #******************************************************#
-    np.maximum(0, 1 - nxion, out=nxion)                    #neutral hydrogen frac = 1-nxion; 0 if it comes out to be negative
+    np.maximum(0, 1 - nxion, out=nxion)                    #neutral hydrogen frac = 1-nxion; 0 if it comes out to be negative; storing it in nxion
     nh *= nxion                                            #neutral hydrogen density in grid^{-3}
     print("volume averaged neutral hydrgen fraction(for real-space data) = {:.6f}".format(np.average(nxion)))
     print("Mass averaged Neutral Hydrogen Fraction (for data in real space)= {:.6f}".format(np.average(nh)/robar))
@@ -148,7 +148,7 @@ for z in redshifts:
     #getting neutral hydrogen density field in redshift space
     #******************************************************#
     print("mapping to redshift space")
-    DM_data[:,4]=density_to_mass(nxion, DM_data, xindex=0, yindex=1, zindex=2)  #getting HI mass at particle pos.
+    DM_data[:,4]=density_to_mass(nxion, DM_data, xindex=0, yindex=1, zindex=2)  #getting HI mass at particle pos; storing the mass back to data[:,4]
     nh=cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=3,mindex=4,run_parallel=cic_parallel_flag,num_threads=cic_threads)
                                                                                 #getting HI density at grids taking particles in RS space
 
