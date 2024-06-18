@@ -12,6 +12,7 @@ For running this code, FFTW-3 library needs to be installed in the system.
 Download FFTW-3 from http://www.fftw.org/fftw3_doc/Installation-on-Unix.html#Installation-on-Unix
 Then install it with the flags --enable-float, --enable-shared and --enable-openmp
 
+
 # Instructions for Running the code
 Download all the files in this repository. Before running the code, run the following command:
 
@@ -25,6 +26,6 @@ Here the numbers after the ionz_main.py are values of redshifts. Before running 
 
 You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up
 
-There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken = (CIC_threads * N1 * N2 * N3 / sfac^3) *4/1024^3 GB. Taking CIC_threads=2 is enough in most cases
+There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = (CIC_threads * N1 * N2 * N3 / sfac^3) *4/1024^3 GB. Taking CIC_threads=2 is enough in most cases
 
 
