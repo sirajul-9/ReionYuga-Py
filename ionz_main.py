@@ -148,9 +148,9 @@ for z in redshifts:
     #getting neutral hydrogen density field in redshift space
     #******************************************************#
     print("mapping to redshift space")
-    DM_data[:,4]=density_to_mass(nxion, DM_data, xindex=0, yindex=1, zindex=2)  #getting HI mass at particle pos. in RS space
-    nh=cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=2,mindex=4,run_parallel=cic_parallel_flag,num_threads=cic_threads)
-                                                                                #geiing HI density at grids 
+    DM_data[:,4]=density_to_mass(nxion, DM_data, xindex=0, yindex=1, zindex=2)  #getting HI mass at particle pos.
+    nh=cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=3,mindex=4,run_parallel=cic_parallel_flag,num_threads=cic_threads)
+                                                                                #getting HI density at grids taking particles in RS space
 
     #storing redshift-space data into file
     filename4="ionz_out/HI_maprs_{:.3f}".format(z)
