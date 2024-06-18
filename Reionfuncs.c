@@ -484,7 +484,7 @@ void deallocate_3d_double(float ***array, long N1, long N2) {
     }
      if (array[0][0] != NULL) {
             
-            fftwf_free(array[0][0]); // Free the pointer to 1D array phi
+            free(array[0][0]); // Free the pointer to 1D array phi
         }
     for (long ii = 0; ii < N1; ++ii) {
         if (array[ii] != NULL) {
