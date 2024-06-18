@@ -24,7 +24,7 @@ python3 ionz_main.py 13 11 10 9 8 7
 
 Here the numbers after the ionz_main.py are values of redshifts. Before running it, open the ionz_main.py file and update the nbody and halo-catalogue files path as directed in the comments in the code.
 
-You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up
+You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up. Making it too large for small array dimesnions causes large overhead, hence worse performance.
 
 There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = (CIC_threads * N1 * N2 * N3 / sfac^3) *4/1024^3 GB. Taking CIC_threads=2 is enough in most cases
 
