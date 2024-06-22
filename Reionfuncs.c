@@ -328,16 +328,6 @@ void cic_vmass_parallel(float *ro_dum, float *data, long tot_particles, long N1,
     long i, pin;
     float xx, yy, zz, delx, dely, delz, wx, wy, wz, W;
 
-
-    int num_threads;
-    #pragma omp parallel
-    {
-        #pragma omp single
-        {
-            num_threads = omp_get_num_threads();
-        }
-    }
-
     // Allocate ro_dum with an additional dimension for thread number
     float *ro_dum_private = (float*) calloc(N1 * N2 * N3 * num_threads, sizeof(float));
 
@@ -387,7 +377,8 @@ void cic_vmass_parallel(float *ro_dum, float *data, long tot_particles, long N1,
     } // end of parallel region
 
     // Combine results from all threads
-    for (i = 0; i < num_threads; i++) {
+    for (i = 0; i < num; i++) {
+        #pragma omp parallel for
         for (long iii = 0; iii < N1; iii++) {
             for (long jjj = 0; jjj < N2; jjj++) {
                 for (long kkk = 0; kkk < N3; kkk++) {
