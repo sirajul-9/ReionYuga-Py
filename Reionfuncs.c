@@ -329,7 +329,7 @@ void cic_vmass_parallel(float *ro_dum, float *data, long tot_particles, long N1,
     float xx, yy, zz, delx, dely, delz, wx, wy, wz, W;
 
     // Allocate ro_dum with an additional dimension for thread number
-    float *ro_dum_private = (float*) calloc(N1 * N2 * N3 * num_threads, sizeof(float));
+    float *ro_dum_private = (float*) calloc(N1 * N2 * N3 * num, sizeof(float));
 
     /* Parallelize the loop over particles using OpenMP */
     #pragma omp parallel private(pin, xx, yy, zz, delx, dely, delz, wx, wy, wz, W) num_threads(num)
