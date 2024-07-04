@@ -28,7 +28,7 @@ For installing locally without root access:
 
 # Instructions for Running the Code
 
-Download all the files in this repository as ZIP and extract.
+Download all the files in this repository (CFFI branch) as ZIP and extract.
 
 If you have installed FFTW locally, edit the build_funcs.py file. Add the following arguments to the ffi.set_source() function:
 <pre>
