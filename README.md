@@ -44,7 +44,7 @@ python3 build_funcs.py
 If you are running with locally installed libraries run the following command (or write it in your job submission script):
 <pre> 
 LD_LIBRARY_PATH=/path/to/local/lib/directory
-export LD_LIRARY_PATH
+export LD_LIBRARY_PATH
 </pre>
 Then the main code can be run using:
 <pre>
