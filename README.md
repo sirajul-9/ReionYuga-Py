@@ -36,4 +36,4 @@ There is seperate flag and threads variable for running the CIC function. Making
 
 To get 21-cm Brightness Temperature map, multiply the output of this code with $\bar T/\bar{\rho}$.
 And to get 21-cm Power Spectrum, multiply the power spectrum with $(\bar T/\bar{\rho})^2$.
-Where $$\bar{\rho} = \frac{\text{Total number of DM particles}}{N1 \times N2 \times N3}$$ and $$\bar T = \frac{\sqrt(22)}{7} \sqrt{1+z}$$ ; z = redshift
+Where $$\bar{\rho} = \frac{\text{Total number of DM particles}}{N1 \times N2 \times N3}$$ and $$\bar T = \frac{\sqrt{22}}{7} \sqrt{1+z}$$  z = redshift
