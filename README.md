@@ -12,11 +12,11 @@ FFTW-3 library needs to be installed in the system. Download FFTW-3 from http://
 Download all the files in this repository as ZIP and extract.
 
 If you have installed FFTW locally, edit the build_funcs.py file. Add the following arguments to the ffw.set_source() function:
-
+<pre>
 include_dirs=['/path/to/local/include/directory'],
 
 library_dirs=['/path/to/local/lib/directory'],
-
+</pre>
     
 Then run the file build_funcs.py with 
 
