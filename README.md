@@ -9,7 +9,7 @@ FFTW-3 library needs to be installed in the system. Download FFTW-3 from http://
 
 # Instructions for Running the Code
 
-Download all the files in this repository with git clone https://github.com/sirajul-9/ReionYuga-CFFI/
+Download all the files in this repository as ZIP and extract.
 
 If you have installed FFTW locally, edit the build_funcs.py file. Add the following arguments to the ffw.set_source() function:
 
