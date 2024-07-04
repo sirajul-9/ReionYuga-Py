@@ -3,9 +3,28 @@ Python Code for simulation of EoR neutral hydrogen density field. This reository
 
 # Required Libraries
 
-CFFI: can be installed with pip install cffi
+CFFI: can be installed with <pre>  pip install cffi </pre>
+for local installation (without root access) use <pre> pip install --user cffi </pre>
 
-FFTW-3 library needs to be installed in the system. Download FFTW-3 from http://www.fftw.org/fftw3_doc/Installation-on-Unix.html#Installation-on-Unix Then install it with the flags --enable-float, --enable-shared and --enable-openmp
+FFTW-3 library needs to be installed in the system. It can be downloaded with 
+<pre> sudo apt-get install libfftw3-dev </pre>
+
+If that does not work download FFTW-3 from http://www.fftw.org/fftw3_doc/Installation-on-Unix.html#Installation-on-Unix Then install it with the flags --enable-float, --enable-shared and --enable-openmp as written below
+
+After extractig the downloaded file go to the directory and do the following.
+<pre> 
+./configure --enable-float --enable-shared --enable-openmp
+ sudo make
+ sudo make install
+</pre>
+
+For installing locally without root access:
+<pre> 
+./configure --enable-float --enable-shared --enable-openmp --prefix="/path/to/your/local/install/directory"
+ make
+ make install
+</pre>
+ 
 
 # Instructions for Running the Code
 
