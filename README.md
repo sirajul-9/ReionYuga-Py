@@ -50,7 +50,8 @@ Here the numbers after the ionz_main.py are values of redshifts. Before running 
 
 You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up. Making it too large for small array dimesnions causes large overhead, hence worse performance.
 
-There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = $$\frac{\text{CIC\_threads} \times N1 \times N2 \times N3 }{\text{sfac}^3} \times \frac{4}{1024^3} GB$$. Decrease it if available memory is low.
+There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = $$ \frac{\text{CIC\_threads} \times N1 \times N2 \times N3}{\text{sfac}^3} \times \frac{4}{1024^3} \text{ GB} $$
+Decrease it if available memory is low.
 
 
 To get 21-cm Brightness Temperature map, multiply the output of this code with $\bar T/\bar{\rho}$.
