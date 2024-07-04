@@ -11,7 +11,7 @@ FFTW-3 library needs to be installed in the system. Download FFTW-3 from http://
 
 Download all the files in this repository as ZIP and extract.
 
-If you have installed FFTW locally, edit the build_funcs.py file. Add the following arguments to the ffw.set_source() function:
+If you have installed FFTW locally, edit the build_funcs.py file. Add the following arguments to the ffi.set_source() function:
 <pre>
 include_dirs=['/path/to/local/include/directory'],
 
@@ -19,12 +19,13 @@ library_dirs=['/path/to/local/lib/directory'],
 </pre>
     
 Then run the file build_funcs.py with 
-
+<pre>
 python3 build_funcs.py
-
+</pre>
 Then the main code can be run using:
-
+<pre>
 python3 ionz_main.py 7 8 9 10 11 13
+</pre>
 
 Here the numbers after the ionz_main.py are values of redshifts. Before running it, open the ionz_main.py file and update the nbody and halo-catalogue files path as directed in the comments in the code.
 
