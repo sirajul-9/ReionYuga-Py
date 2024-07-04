@@ -41,6 +41,11 @@ Then run the file build_funcs.py with
 <pre>
 python3 build_funcs.py
 </pre>
+If you are running with locally installed libraries run the following command (or write it in your job submission script):
+<pre> 
+LD_LIBRARY_PATH=/path/to/local/lib/directory
+export LD_LIRARY_PATH
+</pre>
 Then the main code can be run using:
 <pre>
 python3 ionz_main.py 7 8 9 10 11 13
