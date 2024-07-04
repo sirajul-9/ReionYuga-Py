@@ -50,9 +50,9 @@ Here the numbers after the ionz_main.py are values of redshifts. Before running 
 
 You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up. Making it too large for small array dimesnions causes large overhead, hence worse performance.
 
-There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = $$\frac{CIC_threads \times N1 \times N2 \times N3 }{sfac^3} \times \frac{4}{1024^3} GB$$. Decrease it if available memory is low.
+There is seperate flag and threads variable for running the CIC function. Making the flag True runs the CIC parallel and takes more memory. Also more CIC threads take more memory. Additional memory taken for running it parallel = $$\frac{CIC_{threads} \times N1 \times N2 \times N3 }{sfac^3} \times \frac{4}{1024^3} GB$$. Decrease it if available memory is low.
 
 
 To get 21-cm Brightness Temperature map, multiply the output of this code with $\bar T/\bar{\rho}$.
 And to get 21-cm Power Spectrum, multiply the power spectrum with $(\bar T/\bar{\rho})^2$.
-Where $$\bar{\rho} = \frac{\text{Total number of DM particles}}{N1 \times N2 \times N3}$$ and $$\bar T = \frac{\sqrt{22}}{7} \sqrt{1+z}$$  z = redshift, N1,N2 and N3 are grid dimensions after scaling(i.e. after being divided by sfac).
+Where $$\bar{\rho} = \frac{\text{Total number of DM particles}}{N1 \times N2 \times N3 / sfac^3}$$ and $$\bar T = \frac{\sqrt{22}}{7} \sqrt{1+z}$$  z = redshift, N1,N2 and N3 are grid dimensions of the N-body box.
