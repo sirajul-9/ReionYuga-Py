@@ -26,7 +26,7 @@ After extractig the downloaded file go to the directory and do the following.
 
 For installing locally without root access:
 <pre> 
-./configure --enable-float --enable-shared --enable-openmp --prefix="/path/to/your/local/install/directory"
+./configure --enable-float --enable-shared --enable-openmp --prefix=/path/to/your/local/install/directory
  make
  make install
 </pre>
