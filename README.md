@@ -10,8 +10,7 @@ For running this code, the outputs of N-body code (https://github.com/rajeshmond
 # Required Libraries
 
 CFFI: can be installed with <pre>  pip install cffi </pre>
-for local installation (without root access) use <pre> pip install --user cffi </pre>
-
+for local installation (without root access) you may use <pre> pip install --user cffi </pre> or <pre> pip3 install --user cffi </pre>
 FFTW-3 library needs to be installed in the system. It can be downloaded with 
 <pre> sudo apt-get install libfftw3-dev </pre>
 
