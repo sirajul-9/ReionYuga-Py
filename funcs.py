@@ -129,7 +129,7 @@ def hubble_param(scale_fac, omega):
     return np.float32(H)
 
 
-def cic_vmass(data,out_arr_dims,xindex,yindex,zindex,mindex,run_parallel=False,num_threads=1):
+def cic_vmass(data,out_arr_dims,xindex,yindex,zindex,mindex):
     """
     Computes the Cloud-in-Cell (CIC) density at each grid point for a given field distribution.
 
@@ -173,11 +173,7 @@ def cic_vmass(data,out_arr_dims,xindex,yindex,zindex,mindex,run_parallel=False,n
     col=data.shape[1]  
 
     ro_ptr=ffi.cast("float *", ro.ctypes.data)
-    data_ptr=ffi.cast("float *", data.ctypes.data)
-
-    if run_parallel:
-        lib.cic_vmass_parallel(ro_ptr,data_ptr,tot_particles,N1,N2,N3,xindex,yindex,zindex,mindex,col,num_threads)
-        return ro   
+    data_ptr=ffi.cast("float *", data.ctypes.data) 
     lib.cic_vmass(ro_ptr,data_ptr,tot_particles,N1,N2,N3,xindex,yindex,zindex,mindex,col)
     return ro
 
