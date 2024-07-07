@@ -13,9 +13,6 @@ sfac = 2                                                   #factor for rescaling
 Nthreads=4                                                 #set the number of openmp threads, see for which valule you are getting maximum speedup
 Nbin=10                                                    #number of bins for power spectrum
 
-cic_parallel_flag=True                                     #run CIC in parallel or not, parallel will require more memory, set it to False if low memory
-cic_threads=4                                              #number of threads for CIC, more threads for CIC takes more memory
-
 #parameters of the reionization model
 nion=23.21                                                 #parameter Nion, fid. value=23.21
 rmfp=20.00                                                 #parameter Rmfp, fid. value=20.00
