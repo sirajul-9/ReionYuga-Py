@@ -283,78 +283,9 @@ void cic_vmass(float *ro_dum,float *data,long tot_particles, long N1,long N2,lon
 	    } // end of <8 grid corners loop>	
     } //end of each particle loop      
         
-} // end of function cic_ph 
-
-//function for CIC parallel implementation
-void cic_vmass_parallel(float *ro_dum, float *data, long tot_particles, long N1, long N2, long N3, int xin, int yin, int zin, int min, int col, int num)
-/* This uses Cloud in Cell for calculating density given posns.*/
-/* The i/p is simply the array containing the posns. */
-{
-    long i, pin;
-    float xx, yy, zz, delx, dely, delz, wx, wy, wz, W;
-
-    // Allocate ro_dum with an additional dimension for thread number
-    float *ro_dum_private = (float*) calloc(N1 * N2 * N3 * num, sizeof(float));
-
-    /* Parallelize the loop over particles using OpenMP */
-    #pragma omp parallel private(pin, xx, yy, zz, delx, dely, delz, wx, wy, wz, W) num_threads(num)
-    {
-        int thread_id = omp_get_thread_num();
-        int ii, jj, kk, ix, jy, kz;
-        long a[2], b[2], c[2];
-
-        #pragma omp for
-        for (pin = 0; pin < tot_particles; pin++) { // begin particle index loop
-            // (a/b/c)[0] or (a/b/c)[1] can never be greater than (N1/N2/N3)
-            a[0] = floor(data[pin * col + xin]);
-            b[0] = floor(data[pin * col + yin]);
-            c[0] = floor(data[pin * col + zin]);
-
-            a[1] = (a[0] + 1);
-            b[1] = (b[0] + 1);
-            c[1] = (c[0] + 1);
-
-            xx = data[pin * col + xin];
-            yy = data[pin * col + yin];
-            zz = data[pin * col + zin];
-
-            // for each of the 8 corner points
-            for (ii = 0; ii <= 1; ii++)
-                for (jj = 0; jj <= 1; jj++)
-                    for (kk = 0; kk <= 1; kk++) { // begin 8 corners loop
-                        delx = xx - a[ii];
-                        dely = yy - b[jj];
-                        delz = zz - c[kk];
-
-                        ix = a[ii] % N1;
-                        jy = b[jj] % N2;
-                        kz = c[kk] % N3;
-
-                        // assigning of weights to the corners
-                        wx = 1.0 - fabs(delx);
-                        wy = 1.0 - fabs(dely);
-                        wz = 1.0 - fabs(delz);
-                        W = wx * wy * wz * data[pin * col + min]; // multiplying the product of weights with mass of halo
-
-                        ro_dum_private[(thread_id * N1 * N2 * N3) + (ix * N2 * N3) + (jy * N3) + (kz)] += W;
-                    } // end of <8 grid corners loop>
-        } // end of each particle loop
-    } // end of parallel region
-
-    // Combine results from all threads
-    for (i = 0; i < num; i++) {
-        #pragma omp parallel for
-        for (long iii = 0; iii < N1; iii++) {
-            for (long jjj = 0; jjj < N2; jjj++) {
-                for (long kkk = 0; kkk < N3; kkk++) {
-                    ro_dum[iii * N2 * N3 + jjj * N3 + kkk] += ro_dum_private[(i * N1 * N2 * N3) + (iii * N2 * N3) + (jjj * N3) + (kkk)];
-                }
-            }
-        }
-    }
-
-    free(ro_dum_private);
 } // end of function cic_vmass
+
+
 
 
 
