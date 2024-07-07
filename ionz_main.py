@@ -113,7 +113,7 @@ for z in redshifts:
     gc.collect()
 
     start_cic=time.time()
-    nh= cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=2,mindex=4,run_parallel=cic_parallel_flag,num_threads=cic_threads)
+    nh= cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=2,mindex=4)
                                                                                           #density of hydrogen
     print("CIC done in {:.2f} sec".format(time.time()-start_cic))
     #******************************************************#
@@ -152,7 +152,7 @@ for z in redshifts:
     #******************************************************#
     print("mapping to redshift space")
     DM_data[:,4]=density_to_mass(nxion, DM_data, xindex=0, yindex=1, zindex=2)  #getting HI mass at particle pos; storing the mass back to data[:,4]
-    nh=cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=3,mindex=4,run_parallel=cic_parallel_flag,num_threads=cic_threads)
+    nh=cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=3,mindex=4)
                                                                                 #getting HI density at grids taking particles in RS space
 
     #storing redshift-space data into file
