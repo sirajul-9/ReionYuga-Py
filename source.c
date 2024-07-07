@@ -559,7 +559,7 @@ void calpow_mom(float *ro,int Nbin,double* power, double* kmode, double* power_P
   
   float ***ro_dum= allocate_fftwf_3d(N1,N2,N3+2);
   
-  #pragma omp parallel for private(j,k)
+  
   for(i=0;i<N1;i++)
     for(j=0;j<N2;j++)
       for(k=0;k<N3;k++)
