@@ -265,42 +265,6 @@ def density_to_mass(ro,data,xindex,yindex,zindex):
     lib.density_2_mass(ro_ptr,data_ptr,tot_particles,N1,N2,N3,xindex,yindex,zindex,col,mass_ptr)
     return mass
 
-#function for calculating power spectrum
-def calculate_power_spec(ro, Nbin, grid_spacing, filename):
-    """
-    Calculates Power Spectrum multipoles of a given density field. Saves the power spectrum info into a file.
-    Parameters
-    ----------
-    ro: numpy.ndarray
-        The density array of shape (N1, N2, N3) with dtype float32.
-    Nbin: int
-        Number of bins for power spectrum
-    grid_spacing: float
-        grid spacing of computational grid
-    filename: str
-        filename for power spectrum output file
-
-    """
-    
-    N1,N2,N3=ro.shape
-    P0=np.zeros(Nbin, dtype=np.float64)
-    P2=np.zeros(Nbin, dtype=np.float64)
-    P4=np.zeros(Nbin, dtype=np.float64)
-    no=np.zeros(Nbin, dtype=np.float64)
-    kmode=np.zeros(Nbin, dtype=np.float64)
- 
-    P0_ptr=ffi.cast("double *", P0.ctypes.data)
-    P2_ptr=ffi.cast("double *", P2.ctypes.data)
-    P4_ptr=ffi.cast("double *", P4.ctypes.data)
-    no_ptr=ffi.cast("double *", no.ctypes.data)
-    kmode_ptr=ffi.cast("double *", kmode.ctypes.data)
-    ro_ptr=ffi.cast("float *", ro.ctypes.data)
-
-    lib.calpow_mom(ro_ptr,Nbin,P0_ptr,kmode_ptr,P2_ptr,P4_ptr,no_ptr, N1, N2, N3, grid_spacing)
-    
-    with open(filename, 'w') as out_file:
-        for ii in range(Nbin):
-            out_file.write(f"{kmode[ii]:e} {P0[ii]:e} {P2[ii]:e} {P4[ii]:e} {int(no[ii]):d}\n")
 
 
 
