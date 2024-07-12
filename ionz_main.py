@@ -108,7 +108,7 @@ for z in redshifts:
     #******************************************************#
     dimensions=[N1,N2,N3]
 
-    ngamma = cic_vmass(halo_data,dimensions,xindex=1,yindex=2,zindex=3,mindex=0) #density of ionizing sources
+    ngamma = cic_vmass(halo_data,dimensions,xindex=1,yindex=2,zindex=3,mindex=0) #density of halos
     del halo_data                                          
     gc.collect()
 
@@ -131,10 +131,6 @@ for z in redshifts:
     nh *= nxion                                            #neutral hydrogen density in grid^{-3}
     print("volume averaged neutral hydrgen fraction(for real-space data) = {:.6f}".format(np.average(nxion)))
     print("Mass averaged Neutral Hydrogen Fraction (for data in real space)= {:.6f}".format(np.average(nh)/robar))
-    
-    #Storing real-space power spectrum
-    filename4="ionz_out/pk.ionz_{:.3f}".format(z)
-    calculate_power_spec(nh, Nbin, LL, filename4)
 
     #storing real-space data into file
     filename3="ionz_out/HI_map_{:.3f}".format(z)
@@ -163,9 +159,6 @@ for z in redshifts:
 
     print("Mass averaged Neutral Hydrogen Fraction (for data in redshift space) = {:.6f}".format(np.average(nh)/robar))
 
-    #Storing redshift-space power spectrum
-    filename6="ionz_out/pk.ionzs_{:.3f}".format(z)
-    calculate_power_spec(nh, Nbin, LL, filename6)
     #******************************************************#
     print("-------------------------------------------------")
     gc.collect()
