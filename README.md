@@ -41,6 +41,21 @@ include_dirs=['/path/to/local/include/directory'],
 
 library_dirs=['/path/to/local/lib/directory'],
 </pre>
+
+For example
+<pre>
+ ffi.set_source(
+    "funcs_cffi",  
+    """
+    #include "source.h"
+    """,
+    sources=["source.c"],
+    libraries=["m", "fftw3f", "fftw3f_omp"],
+    extra_compile_args=['-w','-fopenmp', '-std=c99'],
+    library_dirs=["/home/sirajul/local_install/lib"],
+    include_dirs=["/home/sirajul/local_install/include/"]
+)
+</pre>
     
 Then run the file build_funcs.py with 
 <pre>
