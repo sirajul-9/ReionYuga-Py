@@ -61,5 +61,5 @@ Here the numbers after the ionz_main.py are values of redshifts. Before running 
 You can set the number of OpenMP threads too. Experiment with it and see for which value it is giving maximum speed-up. Making it too large for small array dimesnions causes large overhead, hence worse performance.
 
 To get 21-cm Brightness Temperature map, multiply the output of this code with $\bar T/\bar{\rho}$.
-And to get 21-cm Power Spectrum, multiply the power spectrum with $(\bar T/\bar{\rho})^2$.
+
 Where $$\bar{\rho} = \frac{\text{Total number of DM particles}}{N1 \times N2 \times N3 / \text{sfac}^3}$$ and $$\bar T = \frac{27}{\sqrt 10} \sqrt{1+z}$$  z = redshift, N1,N2 and N3 are grid dimensions of the N-body box.
