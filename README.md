@@ -16,7 +16,7 @@ FFTW-3 library needs to be installed in the system. It can be downloaded with
 
 If that does not work download FFTW-3 from http://www.fftw.org/fftw3_doc/Installation-on-Unix.html#Installation-on-Unix Then install it with the flags --enable-float, --enable-shared and --enable-openmp as written below
 
-After extractig the downloaded file go to the directory and do the following.
+After extracting the downloaded file go to the directory and do the following.
 <pre> 
 ./configure --enable-float --enable-shared --enable-openmp
  sudo make
