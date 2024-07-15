@@ -32,12 +32,12 @@ For installing locally without root access:
 
 # Instructions for Running the Code
 
-Download all the files in this repository (CFFI branch) as ZIP and extract. Or use the following command:
+Download all the files in this repository as ZIP and extract. Or use the following command:
 <pre>
  git clone https://github.com/sirajul-9/ReionYuga-Py
 </pre>
 
-If you have installed FFTW locally, edit the "build_funcs.py" file. Add the following arguments to the ffi.set_source() function:
+If you have installed FFTW locally, edit the "build_funcs.py" file. Add the following arguments to the "ffi.set_source()" function:
 <pre>
 include_dirs=['/path/to/local/include/directory'],
 
