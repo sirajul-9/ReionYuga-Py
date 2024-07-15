@@ -18,7 +18,7 @@ If that does not work download FFTW-3 from http://www.fftw.org/fftw3_doc/Install
 After extracting the downloaded file go to the directory and do the following.
 <pre> 
 ./configure --enable-float --enable-shared --enable-openmp
- sudo make
+ make
  sudo make install
 </pre>
 
