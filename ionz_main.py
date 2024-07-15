@@ -11,7 +11,6 @@ nbody_path="/home/sirajul/packages/N-body"                 #write the n-body out
 halo_cat_path='/home/sirajul/packages/FoF-Halo-finder'     #write the halo_catalogue directory path here, don't put slash at the end
 sfac = 2                                                   #factor for rescaling the  grid
 Nthreads=4                                                 #set the number of openmp threads, see for which valule you are getting maximum speedup
-Nbin=10                                                    #number of bins for power spectrum
 
 #parameters of the reionization model
 nion=23.21                                                 #parameter Nion, fid. value=23.21
@@ -54,7 +53,7 @@ for z in redshifts:
     scale_fac=box.scale_factor                             #scale factor of cosmological expansion
     density_params = box.params                            #cosmological density parameters
     DM_data,DM_vel = read_nbody_output(filename1)          #storing position and velocity of DM particles
-    print("N1 = {} N2 = {} N3 = {} LL={:.4f} and total DM = {}".format(N1,N2,N3,LL,tot_DM))
+    print("N1 = {} N2 = {} N3 = {} grid spacing ={:.4f} and total DM = {}".format(N1,N2,N3,LL,tot_DM))
     #******************************************************#
 
 
@@ -113,8 +112,7 @@ for z in redshifts:
     gc.collect()
 
     start_cic=time.time()
-    nh= cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=2,mindex=4)
-                                                                                          #density of hydrogen
+    nh= cic_vmass(DM_data,dimensions,xindex=0,yindex=1,zindex=2,mindex=4)  #density of hydrogen
     print("CIC done in {:.2f} sec".format(time.time()-start_cic))
     #******************************************************#
 
@@ -137,8 +135,6 @@ for z in redshifts:
     with open(filename3, 'wb') as file:
         file.write(np.array([N1, N2, N3], dtype=np.int32).tobytes())
         file.write(nh.tobytes())
-
-    
     #******************************************************#
 
     
