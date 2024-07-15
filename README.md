@@ -1,5 +1,4 @@
 # ReionYuga-Py
-Python Code for simulation of EoR neutral hydrogen density field. This branch uses the CFFI library for passing data between C and Python. Please see the "ctypes" branch which uses the python standard library module ctypes.
 
 This repository contains a Python project that integrates and utilizes the C code, ReionYuga. The original code is located at https://github.com/rajeshmondal18/ReionYuga. The primary purpose of this integration is to leverage the optimized C functions provided by the original codebase within a Python environment, combining the performance benefits of the C code with the flexibility and ease of use of Python. The C code uses shared memory parallelization by OpenMP for faster execution.
 
